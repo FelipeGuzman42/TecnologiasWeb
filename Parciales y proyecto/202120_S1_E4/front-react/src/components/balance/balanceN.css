@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+#contenedorHome {
+  padding: 0;
+}
+
+#homepageTop {
+  height: 6vh;
+  padding-left: 20px;
+}
+
+#homeLogin {
+  text-align: right;
+  padding-right: 12px;
+}
+
+#logo {
+  height: 4vh;
+}
+
+#imagenMenuPrincipal {
+  width: 100%;
+  height: 190px;
+  padding-left: 0;
+  margin-bottom: -4em;
+}
+
+#fotoPerfil {
+  height: 60px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+#tituloMenuPrincipal {
+  position: relative;
+  font-size: 30px;
+  bottom: 1.8em;
+  color: white;
+  font-weight: bold;
+  padding-left: 1.5em;
+}
+
+#login,
+#opcionBalance {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+#opcionEspecialista {
+  font-size: 18px;
+  color: lightgray;
+  font-weight: bold;
+}
+
+#izquierda,
+#derecha {
+  margin-top: 150px;
+  margin-bottom: 300px;
+}
+
+#btnDefault1,
+#btnDefault2,
+#btnDefault3 {
+  font-family: Raleway-SemiBold;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 14px;
+  padding: 0;
+  border: 1px solid rgba(108, 89, 179, 0.75);
+  border-radius: 40px;
+  background: rgb(83, 245, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 224, 1) 0%,
+    rgba(245, 83, 112, 1) 0%,
+    rgba(255, 211, 103, 1) 0%,
+    rgba(245, 83, 83, 1) 90%
+  );
+  transition: all 0.1s ease 0s;
+  width: 15vw;
+  height: 2.8vw;
+}
+
+#banner1,
+#banner2,
+#banner3 {
+  object-fit: cover;
+  height: 60vh;
+}
+
+#homepageTop {
+  background: rgb(83, 245, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 224, 1) 0%,
+    rgba(245, 83, 112, 1) 0%,
+    rgba(255, 211, 103, 1) 0%,
+    rgba(245, 83, 83, 1) 90%
+  );
+}
+
+#seleccionarTiempo,
+#tuDietaEdit,
+#seleccionarComida {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 50rem;
+}
+
+#recordatorio1,
+#recordatorio2 {
+  position: absolute;
+  top: 25%;
+  left: 75%;
+}
+
+#dropdownMenuLink {
+  border-radius: 50rem;
+}
+
+#imagenComida1,
+#imagenComida2 {
+  width: 90px;
+  height: 80px;
+}
+
+#tuDieta,
+#comida1,
+#comida2 {
+  border-radius: 0.8rem;
+}
+
+#plato1,
+#plato2 {
+  border-radius: 0.8rem 7rem 0.8rem 0.8rem;
+}
+
+#imagenPlato1,
+#imagenPlato2 {
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 10;
+}
+
+#imagenPlato1 {
+  width: 89.57px;
+  height: 86.08px;
+}
+
+#imagenPlato2 {
+  width: 97.16px;
+  height: 87.24px;
+}
+
+#seleccionarPlato1,
+#seleccionarPlato2 {
+  border-radius: 50rem;
+}
+
+#dropdownMenuLink,
+#tuDieta,
+#tuDietaEdit,
+#plato1,
+#seleccionarPlato1 {
+  background: linear-gradient(90deg, #92a3fd, #9dceff);
+}
+
+#plato2,
+#seleccionarPlato2 {
+  background: linear-gradient(90deg, #c58bf2, #eea4ce);
+}
+
+#cap1,
+#cap2,
+#cap3 {
+  bottom: -100px !important;
+  left: 2% !important;
+  text-align: left !important;
+  max-width: 100% !important;
+  right: auto !important;
+  padding: 3px !important;
+}
+
+.carousel-inner {
+  padding-bottom: 150px !important;
+}
+
+.capTitle {
+  font-weight: bold;
+  color: black;
+}
+
+.capDesc {
+  color: gray;
+  padding-top: 3px;
+  padding-left: 2px;
+}
+
+#salir {
+  padding-right: 15px;
+}
+
+#cargandoBalance {
+  margin-left: 17px;
+}

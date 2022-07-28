@@ -1,0 +1,4 @@
+.filtro:not(.filtro-especializado) {
+    display: flex;
+    flex-direction: column;
+}

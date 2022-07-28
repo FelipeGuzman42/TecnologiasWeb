@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b6d9af4.chunk.css",
+    "main.js": "/static/js/main.5b1836d6.chunk.js",
+    "main.js.map": "/static/js/main.5b1836d6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.41cb235e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.41cb235e.js.map",
+    "static/js/2.f43e82e8.chunk.js": "/static/js/2.f43e82e8.chunk.js",
+    "static/js/2.f43e82e8.chunk.js.map": "/static/js/2.f43e82e8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.4b6d9af4.chunk.css.map": "/static/css/main.4b6d9af4.chunk.css.map",
+    "static/js/2.f43e82e8.chunk.js.LICENSE.txt": "/static/js/2.f43e82e8.chunk.js.LICENSE.txt",
+    "static/media/comida1.ed1f8e98.png": "/static/media/comida1.ed1f8e98.png",
+    "static/media/comida2.651153f7.png": "/static/media/comida2.651153f7.png",
+    "static/media/doctor_and_patient.922ab1ec.jpg": "/static/media/doctor_and_patient.922ab1ec.jpg",
+    "static/media/goals.ee420989.jpg": "/static/media/goals.ee420989.jpg",
+    "static/media/healthy_food.ac9d8bd2.jpg": "/static/media/healthy_food.ac9d8bd2.jpg",
+    "static/media/imagenMenuPrincipal.1f10754f.png": "/static/media/imagenMenuPrincipal.1f10754f.png",
+    "static/media/plato1.46f654c7.png": "/static/media/plato1.46f654c7.png",
+    "static/media/plato2.10c177ac.png": "/static/media/plato2.10c177ac.png",
+    "static/media/regFood.c1523d2d.jfif": "/static/media/regFood.c1523d2d.jfif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41cb235e.js",
+    "static/js/2.f43e82e8.chunk.js",
+    "static/css/main.4b6d9af4.chunk.css",
+    "static/js/main.5b1836d6.chunk.js"
+  ]
+}

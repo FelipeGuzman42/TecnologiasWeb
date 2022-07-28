@@ -1,0 +1,59 @@
+.banner {
+  height: calc(6vw + 8vh);
+  object-fit: cover;
+  background-image: url("https://www.perfectnursingservice.com/assets/img/banner-doctor.jpg");
+  display: flex;
+  align-items: center;
+}
+
+.banner > h1 {
+  padding-left: 5%;
+  font-size: calc(2.7vw + 1.6vh);
+  color: brown;
+}
+
+main p,
+main button,
+main label,
+main input {
+  font-size: calc(0.8vw + 1vh) !important;
+}
+
+.contenido-principal h2 {
+  font-size: calc(2.2vw + 1.1vh);
+  margin-bottom: 3vh;
+}
+
+.contenido-principal h5 {
+  font-size: calc(1vw + 1.25vh);
+}
+
+.buscados .cartas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contenido {
+  width: 90%;
+  --padding: 5%;
+}
+
+.buscados,
+.ultimos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buscados > .contenido {
+  margin-left: calc(var(--padding) * 2);
+}
+
+.ultimos > .contenido {
+  margin-left: var(--padding);
+}
+
+.cartas > div {
+  width: 80%;
+  margin-bottom: 3vh;
+}

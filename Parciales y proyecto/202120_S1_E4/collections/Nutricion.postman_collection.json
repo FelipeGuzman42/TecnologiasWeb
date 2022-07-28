@@ -1,0 +1,2838 @@
+{
+	"info": {
+		"_postman_id": "5d4fa742-ea19-4d99-ba4c-834621e92e6f",
+		"name": "Nutricion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ByModel",
+			"item": [
+				{
+					"name": "usuario",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_usuario\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"No yo\",\r\n    \"edad\": 21,\r\n    \"estatura\": 182,\r\n    \"peso\": 62,\r\n    \"correo\": \"juan@juan.com\",\r\n    \"password\": \"juan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/usuarios",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"estatura\": 200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/usuarios/{{id_usuario}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"{{id_usuario}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/{{id_usuario}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"{{id_usuario}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET NUTRICIONISTAS",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/1/nutricionistas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"1",
+										"nutricionistas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET CITASMEDICAS",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/1/citasMedicas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"1",
+										"citasMedicas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "CREAR CUENTA YA EXISTENTE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"se genera error en el post\"] = responseCode.code === 404;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/cuentas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN CORRECTO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"token\",data.token);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"correo\": \"juan@juan.com\",\r\n    \"password\": \"juan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MAL LOGIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"Login con credenciales incorrectas no es posible.\"] = responseCode.code === 401;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"badUser\",\r\n    \"password\": \"badPass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "alimento",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_alimento\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"pera\",\r\n    \"gramos\": 100,\r\n    \"calorias\": 25,\r\n    \"vitaminas\": 50,\r\n    \"proteinas\": 0,\r\n    \"carbohidratos\": 68,\r\n    \"grasa\": 0,\r\n    \"sodio\": 1\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/alimentos",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"alimentos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/alimentos",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"alimentos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/alimentos/{{id_alimento}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"alimentos",
+										"{{id_alimento}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"pera\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/alimentos/{{id_alimento}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"alimentos",
+										"{{id_alimento}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/alimentos/{{id_alimento}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"alimentos",
+										"{{id_alimento}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "citaMedica",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_cita\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 1,\r\n    \"idNutritionist\": 1,\r\n    \"fecha\": \"2022-09-04\",\r\n    \"lugar\": \"Clinica Los Nogales\",\r\n    \"presencial\": true,\r\n    \"duracion\": 60\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/citasMedicas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/citasMedicas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/citasMedicas/{{id_cita}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas",
+										"{{id_cita}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 1,\r\n    \"idNutritionist\": 1,\r\n    \"fecha\": \"2021-09-04\",\r\n    \"presencial\": false,\r\n    \"link\": \"www.google.com\",\r\n    \"duracion\": 60\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/citasMedicas/{{id_cita}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas",
+										"{{id_cita}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/citasMedicas/{{id_cita}}\n",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas",
+										"{{id_cita}}\n"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "dieta",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_dieta\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Dieta con protenia\",\r\n    \"fechaInicio\": \"2021-09-04\",\r\n    \"fechaFin\": \"2021-09-25\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/dietas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dietas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/dietas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dietas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/dietas/{{id_dieta}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dietas",
+										"{{id_dieta}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"dieta calorica\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/dietas/{{id_dieta}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dietas",
+										"{{id_dieta}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/dietas/{{id_dieta}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dietas",
+										"{{id_dieta}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "entrada",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_entrada\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tema\": \"Star WALLS\",\r\n    \"contenido\": \"Piu piu piu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/entradas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"entradas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/entradas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"entradas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/entradas/{{id_entrada}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"entradas",
+										"{{id_entrada}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"contenido\": \"piu piun't\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/entradas/{{id_entrada}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"entradas",
+										"{{id_entrada}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/entradas/{{id_entrada}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"entradas",
+										"{{id_entrada}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "historiaClinica",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_historia\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2021-06-05\",\r\n    \"medicamentos\": \"loratadina\",\r\n    \"enfermedades\": \"rinitis\",\r\n    \"cirugias\": \"ninguna\",\r\n    \"alergias\": \"ninguna\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/historiaClinica",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"historiaClinica"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/historiaClinica",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"historiaClinica"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/historiaClinica/{{id_historia}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"historiaClinica",
+										"{{id_historia}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fecha\": \"2021-06-05T00:00:00.000Z\",\r\n    \"medicamentos\": \"taquicardia\",\r\n    \"enfermedades\": \"rinitis\",\r\n    \"cirugias\": \"ninguna\",\r\n    \"alergias\": \"ninguna\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/historiaClinica/{{id_historia}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"historiaClinica",
+										"{{id_historia}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/historiaClinica/{{id_historia}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"historiaClinica",
+										"{{id_historia}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "nutricionista",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_nutricionista\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Paco\",\r\n    \"experiencia\": \"Mucha\",\r\n    \"correo\": \"paco@paco.com\",\r\n    \"password\": \"paco\",\r\n    \"foto\": \"oli\",\r\n    \"calificacion\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/nutricionistas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/nutricionistas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/nutricionistas/{{id_nutricionista}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas",
+										"{{id_nutricionista}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"experiencia\": \"poca\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/nutricionistas/{{id_nutricionista}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas",
+										"{{id_nutricionista}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/nutricionistas/{{id_nutricionista}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas",
+										"{{id_nutricionista}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "plato",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_plato\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"arroz con pollo\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/platos",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"platos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:3000/platos",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"platos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/platos/{{id_plato}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"platos",
+										"{{id_plato}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"arroz con camarones\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/platos/{{id_plato}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"platos",
+										"{{id_plato}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/platos/{{id_plato}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"platos",
+										"{{id_plato}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "progreso",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_progreso\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bmi\": 5,\r\n    \"balanceAlimenticio\": 6,\r\n    \"porcionesAlimentos\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/progreso",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"progreso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/progreso",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"progreso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/progreso/{{id_progreso}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"progreso",
+										"{{id_progreso}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"porcionesAlimentos\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/progreso/{{id_progreso}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"progreso",
+										"{{id_progreso}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/progreso/{{id_progreso}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"progreso",
+										"{{id_progreso}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "resena",
+					"item": [
+						{
+							"name": "POST",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_resena\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"detalles\": \"No yo\",\r\n    \"calificacion\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/resenas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"resenas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FINDALL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data= JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get all\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/resenas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"resenas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FIND",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(responseBody);\r",
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/resenas/{{id_resena}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"resenas",
+										"{{id_resena}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Put\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"calificacion\": 3.5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/resenas/{{id_resena}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"resenas",
+										"{{id_resena}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"tests[\"no genera error en el Delete\"] = responseCode.code === 204;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/resenas/{{id_resena}}",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"resenas",
+										"{{id_resena}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ByPetition",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "USUARIO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_usuario\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"No yo\",\r\n    \"edad\": 21,\r\n    \"estatura\": 182,\r\n    \"peso\": 62,\r\n    \"correo\": \"juan@juan.com\",\r\n    \"password\": \"juan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/usuarios",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"token\",data.token);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"correo\": \"juan@juan.com\",\r\n    \"password\": \"juan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NUTRICIONISTA",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_nutricionista\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Paco\",\r\n    \"experiencia\": \"Mucha\",\r\n    \"correo\": \"paco@paco.com\",\r\n    \"password\": \"paco\",\r\n    \"foto\": \"oli\",\r\n    \"calificacion\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/nutricionistas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"nutricionistas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CITAMÉDICA",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"id_cita\",data.id);\r",
+											"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 1,\r\n    \"idNutritionist\": 1,\r\n    \"fecha\": \"2022-09-04\",\r\n    \"lugar\": \"Clinica Los Nogales\",\r\n    \"presencial\": true,\r\n    \"duracion\": 60\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/citasMedicas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"citasMedicas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "USUARIO NUTRICIONISTAS",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/1/nutricionistas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"1",
+										"nutricionistas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "USUARIO CITASMEDICAS",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/usuarios/1/citasMedicas",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuarios",
+										"1",
+										"citasMedicas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,59 @@
+#nav {
+  height: 6vh;
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 224, 1) 0%,
+    rgba(245, 83, 112, 1) 0%,
+    rgba(255, 211, 103, 1) 0%,
+    rgba(245, 83, 83, 1) 90%
+  );
+}
+
+#homepageTop {
+  background: rgb(83, 245, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 224, 1) 0%,
+    rgba(245, 83, 112, 1) 0%,
+    rgba(255, 211, 103, 1) 0%,
+    rgba(245, 83, 83, 1) 90%
+  );
+  height: 6vh;
+  padding-left: 20px;
+}
+
+#navHomePage {
+  background: rgb(83, 245, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 224, 1) 0%,
+    rgba(245, 83, 112, 1) 0%,
+    rgba(255, 211, 103, 1) 0%,
+    rgba(245, 83, 83, 1) 90%
+  );
+  padding-left: 20px;
+}
+
+#logo {
+  height: 4vh;
+}
+
+#opcionBalance,
+#opcionEspecialista,
+#opcionSalir,
+#opcionForo,
+#opcionAlimento {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+#botonSalir {
+  padding-right: 13px;
+}
+
+/* #opcionForo {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+} */
